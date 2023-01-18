@@ -2,7 +2,7 @@ import React from "react"
 
 function Greeter(){
     const [userName, setUserName] = React.useState('dummy')
-    const [message, setMessage] = React.useState('[default message]')
+    const [message, setMessage] = React.useState('')
     const onTxtUserNameChange = (evt) => {
         setUserName(evt.target.value)
     }
@@ -17,7 +17,7 @@ function Greeter(){
             <label htmlFor="">UserName :</label>
             <input type="text" onChange={onTxtUserNameChange} />
             <button onClick={onBtnGreetClick}>Greet</button>
-            <div>{message}</div>
+            { message == '' ? null : <div>{message}</div> }
             {/* <div>The user name : {userName}</div> */}
         </div>
     )
