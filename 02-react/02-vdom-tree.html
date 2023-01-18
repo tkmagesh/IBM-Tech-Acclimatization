@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VDOM Demo</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        var root, counter = 0
+        function onBtnRenderClick(){
+            ++counter
+            //React's VDOM
+            var appEle = React.createElement('div', null, 
+                React.createElement('h1', null, 'React Overview'),
+                React.createElement('hr'),
+                React.createElement('div', null, 
+                    React.createElement('label', null, 'Counter : '),
+                    React.createElement('span', null, counter)
+                ),
+                React.createElement('div', null, 
+                    React.createElement('h3', null, 'Introduction'),
+                    React.createElement('p', null, 'Eu tempor enim est pariatur id dolore non nulla consectetur nulla voluptate. Enim veniam ea pariatur commodo et laboris id fugiat. Reprehenderit eu cupidatat non amet id anim deserunt ea. Incididunt duis in et voluptate eu. Consequat deserunt aute consectetur consectetur.'),
+                    React.createElement('p', null, 'Tempor incididunt sint fugiat ullamco nisi. Officia excepteur irure anim occaecat voluptate sit labore aute veniam voluptate elit consequat. Dolore velit occaecat consequat non laboris mollit magna. Eu incididunt dolor deserunt veniam eiusmod. Amet cillum minim labore labore tempor incididunt. Excepteur ea mollit ea magna culpa duis tempor consectetur dolor mollit.'),
+                    React.createElement('p', null, 'Duis laboris ullamco commodo ut fugiat. Deserunt in pariatur do consectetur consequat quis sunt ea anim nostrud dolore non ad. Dolor fugiat labore nulla ullamco mollit et consequat. Ex velit excepteur irure magna aliqua labore nostrud cillum consequat cillum consequat mollit.'),
+                ),
+                React.createElement('div', null, 
+                    React.createElement('h3', null, 'Advantages'),
+                    React.createElement('ul', null, 
+                        React.createElement('li', null, 'Declarative'),
+                        React.createElement('li', null, 'Efficient')
+                    )
+                )
+            )
+            root.render(appEle)
+
+            //Browser's DOM
+           /*  var spanCounter = document.getElementById('spanCounter')
+            spanCounter.innerText = counter; */
+        }
+        function onDocumentLoad(){
+            var btnRender = document.getElementById('btnRender')
+            btnRender.addEventListener('click', onBtnRenderClick)
+            var container = document.getElementById('root')
+            root = ReactDOM.createRoot(container)
+        }
+        window.addEventListener('load', onDocumentLoad)
+    </script>
+</head>
+<body>
+    <button id="btnRender">Render</button>
+    <!-- <div>
+        <label for="">Counter :</label>
+        <span id="spanCounter"></span>
+    </div> -->
+    <div id="root">
+
+    </div>
+</body>
+</html>
