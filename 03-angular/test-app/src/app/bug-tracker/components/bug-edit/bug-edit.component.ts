@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import Bug from '../../models/Bug';
 
 @Component({
@@ -11,14 +12,21 @@ export class BugEditComponent {
 
   @Output()
   bugAdded : EventEmitter<Bug> = new EventEmitter<Bug>()
+
+  constructor(private http : HttpClient){
+
+  }
   
   onBtnAddNewClick() {
-    let newBug: Bug = {
+    let newBugData: Bug = {
       id: 0,
       name: this.newBugName,
       isClosed: false,
       createdAt: new Date()
     }
-    this.bugAdded.emit(newBug)
+    this.http
+      .post<Bug>('http://localhost:3030/bugs', newBugData)
+      .subscribe(newBug => this.bugAdded.emit(newBug))
+    
   }
 }

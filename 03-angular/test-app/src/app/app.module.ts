@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
@@ -18,7 +19,8 @@ import { BugEditComponent } from './bug-tracker/components/bug-edit/bug-edit.com
     BugEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
