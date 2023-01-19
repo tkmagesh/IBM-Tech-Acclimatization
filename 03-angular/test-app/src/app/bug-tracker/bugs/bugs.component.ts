@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import Bug from '../models/Bug';
+import { BugApiService } from '../services/bugApiService';
+import { BugsService } from '../services/bugService';
 
 
 @Component({
@@ -12,13 +13,17 @@ import Bug from '../models/Bug';
 export class BugsComponent implements OnInit {
   bugs : Bug[] = []
 
-  constructor(private http : HttpClient){
+  constructor(
+    private bugsService : BugsService,
+    private bugApi : BugApiService
+
+    ){
 
   }
 
   ngOnInit(): void {
-    this.http
-      .get<Bug[]>('http://localhost:3030/bugs')
+    this.bugApi
+      .GetAll()
       .subscribe(bugs => this.bugs = bugs)
   }
 
@@ -29,14 +34,13 @@ export class BugsComponent implements OnInit {
 
   onBugNameClick(bugToToggle : Bug) {
     bugToToggle.isClosed = !bugToToggle.isClosed
-    this.http
-      .put<Bug>(`http://localhost:3030/bugs/${bugToToggle.id}`, bugToToggle)
-      .subscribe(toggledBug => console.log(toggledBug))
+    this.bugApi.Save(bugToToggle)
+      .subscribe(toggledBug => this.bugs = this.bugs.map(bug => bug.id === toggledBug.id ? toggledBug : bug))
   }
 
   onBtnRemoveClick(bugToRemove : Bug) {
-     this.http
-      .delete(`http://localhost:3030/bugs/${bugToRemove.id}`)
+     this.bugApi
+      .Remove(bugToRemove)
       .subscribe(() => this.bugs = this.bugs.filter(bug => bug.id !== bugToRemove.id))
   }
   onBtnRemoveClosedClick(){

@@ -27,16 +27,16 @@
   ],
   "bugs": [
     {
-      "id": 2,
-      "name": "User access denied",
-      "createdAt": "2023-01-19T06:42:36.233Z",
-      "isClosed": true
-    },
-    {
       "id": 3,
       "name": "Data integrity checks failed",
       "createdAt": "2023-01-19T06:42:36.233Z",
       "isClosed": false
+    },
+    {
+      "id": 4,
+      "name": "Server communication failure",
+      "isClosed": false,
+      "createdAt": "2023-01-19T07:13:00.676Z"
     }
   ]
 }

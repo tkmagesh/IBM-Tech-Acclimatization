@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import Bug from '../../models/Bug';
+import { BugApiService } from '../../services/bugApiService';
 
 @Component({
   selector: 'app-bug-edit',
@@ -13,7 +13,7 @@ export class BugEditComponent {
   @Output()
   bugAdded : EventEmitter<Bug> = new EventEmitter<Bug>()
 
-  constructor(private http : HttpClient){
+  constructor(private bugApi : BugApiService){
 
   }
   
@@ -24,8 +24,8 @@ export class BugEditComponent {
       isClosed: false,
       createdAt: new Date()
     }
-    this.http
-      .post<Bug>('http://localhost:3030/bugs', newBugData)
+    this.bugApi
+      .Save(newBugData)
       .subscribe(newBug => this.bugAdded.emit(newBug))
     
   }
