@@ -13,7 +13,7 @@ function NewProduct({ onAdded }) {
     const onBtnAddNewClick = () => {
         const newProductData = {
             name : newProductName,
-            cost : newProductCost
+            // cost : newProductCost
         }
         axios.post('http://localhost:3030/products', newProductData)
             .then(response => response.data)

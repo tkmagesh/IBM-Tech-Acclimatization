@@ -25,3 +25,29 @@ To install axios
 JSON Server
     (https://www.npmjs.com/package/json-server)
     Expose the data from a JSON file as a REST endpoint
+
+Angular
+    Building Blocks
+        Modules
+            Better organization of application code
+            Dependency Injection
+        Components
+            Presentation + User Interaction + Managing State
+        Pipes
+            Data transformation for presentation
+        Directives
+            DOM manipulation logic
+        Services
+            Any NON-UI responsibilities
+
+Angular CLI
+    npm install @angular/cli -g
+
+    To Create a new application
+        ng new <app_name>
+
+    To Create a component
+        ng generate component <component_name>
+        OR
+        ng g c <component_name>
+    

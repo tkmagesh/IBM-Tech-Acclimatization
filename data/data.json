@@ -19,6 +19,10 @@
       "name": "Notepad",
       "cost": 20,
       "id": 103
+    },
+    {
+      "name": "dummy",
+      "id": 104
     }
   ]
 }
