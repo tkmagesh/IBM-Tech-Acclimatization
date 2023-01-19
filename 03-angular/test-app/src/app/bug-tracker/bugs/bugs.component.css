@@ -6,10 +6,6 @@
      margin-bottom: 10px;
  }
 
- .stats {
-     font-size: 18pt;
- }
-
  .closed {
      color: red;
      text-decoration: line-through;
