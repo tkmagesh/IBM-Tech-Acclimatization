@@ -51,3 +51,8 @@ Angular CLI
         OR
         ng g c <component_name>
     
+
+My Recordings:
+    https://bit.ly/javascript-training-videos
+    https://bit.ly/node-training-videos
+    https://bit.ly/react-videos
