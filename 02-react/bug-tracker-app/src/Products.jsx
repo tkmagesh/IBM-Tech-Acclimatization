@@ -1,42 +1,24 @@
 import React from 'react'
-
-
-function NewProduct({onAdded}) {
-    const [newProductName, setNewProductName] = React.useState('')
-    const onTxtProductNameChange = (evt) => {
-        setNewProductName(evt.target.value)
-    }
-    const onBtnAddNewClick = () => {
-        // setProductNames([...productNames, newProductName])
-        onAdded(newProductName)
-    }
-    return (
-        <div>
-            <label htmlFor="">Product Name :</label>
-            <input type="text" onChange={onTxtProductNameChange} />
-            <button onClick={onBtnAddNewClick}>Add New</button>
-        </div>
-    )
-}
-
-function ProductsList({data}){
-    const productItems = data.map((productName, idx) => (<li key={idx}>{productName}</li>))
-    return (
-        <ul>
-            {productItems}
-        </ul>
-    )
-}
+import axios from 'axios'
+import NewProduct from './NewProduct'
+import ProductsList from './ProductsList'
 
 function Products(){
-    const [productNames, setProductNames] = React.useState([ 'Pen', 'Pencil', 'Marker' ])
+    const [productNames, setProductNames] = React.useState([ ])
     const onNewProductAdded = (newProductName) => {
         setProductNames([...productNames, newProductName])
+    }
+    const onLoadProductsClick = () => {
+        axios.get('http://localhost:3030/products')
+            .then(response => response.data)
+            .then(products => setProductNames(products))
+
     }
     return (
         <div>
             <h1>Products</h1>
             <hr />
+            <button onClick={onLoadProductsClick}>Load Products</button>
             <NewProduct onAdded={onNewProductAdded}/>
             <ProductsList data={productNames}/>
             {/*  */}

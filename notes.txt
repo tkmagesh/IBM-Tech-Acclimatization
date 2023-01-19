@@ -16,3 +16,12 @@ To start the Application
     npm run start
     OR
     yarn start
+
+To install axios
+    yarn add axios
+    OR
+    npm install axios
+
+JSON Server
+    (https://www.npmjs.com/package/json-server)
+    Expose the data from a JSON file as a REST endpoint
