@@ -7,11 +7,12 @@ import { Component } from '@angular/core';
 })
 export class GreeterComponent {
   
-  greetMsg = ""
-  userName = ""
+  greetMsg : string = "";
+  userName : string = "";
 
   onBtnGreetClick(){
     this.greetMsg = `Hi ${this.userName}, Have a nice day!`
+    // this.greetMsg = 1000
   }
   onTxtUserNameChange(evt:any) {
     this.userName = evt.target.value
