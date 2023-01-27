@@ -1,0 +1,8 @@
+[
+    {"id" : 100, "name" : "Pen", "cost" : 10, "units" : 10, "category" : "stationary"
+    },
+    { "id": 101, "name": "Pencil", "cost": 5, "units": 50, "category": "stationary"
+    },
+    { "id": 102, "name": "Marker", "cost": 50, "units": 5, "category": "stationary"
+    }
+]
